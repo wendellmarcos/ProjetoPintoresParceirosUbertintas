@@ -4,11 +4,9 @@
  */
 package br.com.VIEW;
 
-import br.com.login.controller.LoginController;
+import br.com.DTO.UsuarioDTO;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 
 /**
@@ -33,8 +31,8 @@ public class LoginView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtLogin = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
+        txtLoginUsuario = new javax.swing.JTextField();
+        txtPasswordLogin = new javax.swing.JPasswordField();
         jButtonContinue = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -42,16 +40,26 @@ public class LoginView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 320, 40));
-
-        txtPassword.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtLoginUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtLoginUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
+                txtLoginUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 320, 40));
+        getContentPane().add(txtLoginUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 320, 40));
+
+        txtPasswordLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtPasswordLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordLoginActionPerformed(evt);
+            }
+        });
+        txtPasswordLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordLoginKeyPressed(evt);
+            }
+        });
+        getContentPane().add(txtPasswordLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 320, 40));
 
         jButtonContinue.setContentAreaFilled(false);
         jButtonContinue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -87,38 +95,41 @@ public class LoginView extends javax.swing.JFrame {
 
     private void jButtonContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContinueActionPerformed
         
-        if (txtLogin.getText().matches("") || txtPassword.getText().matches("")){
-            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!");
-        } else {
-            try{
-        LoginController login = new LoginController();
-        login.loginUsuario(this);
-       } catch (SQLException sql){
+         String emailUsuario = txtLoginUsuario.getText();
+         String senhaUsuario = txtPasswordLogin.getText();
          
-        }
-        
-          
-       }
+         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+         objUsuarioDTO.setEmail(emailUsuario);
+         objUsuarioDTO.setSenhaUsuario(senhaUsuario);
     }//GEN-LAST:event_jButtonContinueActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void txtPasswordLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+    }//GEN-LAST:event_txtPasswordLoginActionPerformed
+
+    private void txtLoginUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtLoginUsuarioActionPerformed
+
+    private void txtPasswordLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordLoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordLoginKeyPressed
 
     public JPasswordField getjPasswordFieldSenha() {
-        return txtPassword;
+        return txtPasswordLogin;
     }
 
     public void setjPasswordFieldSenha(JPasswordField jPasswordFieldSenha) {
-        this.txtPassword = jPasswordFieldSenha;
+        this.txtPasswordLogin = jPasswordFieldSenha;
     }
 
     public JTextField getjTextFieldLogin() {
-        return txtLogin;
+        return txtLoginUsuario;
     }
 
     public void setjTextFieldLogin(JTextField jTextFieldLogin) {
-        this.txtLogin = jTextFieldLogin;
+        this.txtLoginUsuario = jTextFieldLogin;
     }
 
     
@@ -161,7 +172,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonContinue;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtLogin;
-    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtLoginUsuario;
+    private javax.swing.JPasswordField txtPasswordLogin;
     // End of variables declaration//GEN-END:variables
 }

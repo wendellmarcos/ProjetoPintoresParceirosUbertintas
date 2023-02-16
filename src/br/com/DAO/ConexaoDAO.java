@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class ConexaoDAO {
     
-    public Connection getConnection() throws SQLException{
+    public Connection conectaDB() {
        // Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ubertintas", "root","280113");
         //return conn;
         
