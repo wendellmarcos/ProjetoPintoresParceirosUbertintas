@@ -32,44 +32,49 @@ public class CadastroView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtTelaCadastroSenha = new javax.swing.JPasswordField();
-        txtTelaCadastroEmail = new javax.swing.JTextField();
-        txtTelaCadastroNome = new javax.swing.JTextField();
-        buttonContinueTelaCadastrar = new javax.swing.JButton();
+        txtTelaCadastroSenhaInicial = new javax.swing.JPasswordField();
+        txtTelaCadastroInicialEmail = new javax.swing.JTextField();
+        txtTelaCadastroInicialNome = new javax.swing.JTextField();
+        buttonContinueTelaCadastrarInicial = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTelaCadastroSenha.setText("jPasswordField1");
-        txtTelaCadastroSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txtTelaCadastroSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 462, 320, 40));
+        txtTelaCadastroSenhaInicial.setText("jPasswordField1");
+        txtTelaCadastroSenhaInicial.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtTelaCadastroSenhaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 462, 320, 40));
 
-        txtTelaCadastroEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txtTelaCadastroEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 320, 40));
+        txtTelaCadastroInicialEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtTelaCadastroInicialEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 320, 40));
 
-        txtTelaCadastroNome.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txtTelaCadastroNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 320, 40));
-
-        buttonContinueTelaCadastrar.setContentAreaFilled(false);
-        buttonContinueTelaCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonContinueTelaCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        txtTelaCadastroInicialNome.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtTelaCadastroInicialNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonContinueTelaCadastrarActionPerformed(evt);
+                txtTelaCadastroInicialNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonContinueTelaCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 320, 50));
+        getContentPane().add(txtTelaCadastroInicialNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 320, 40));
+
+        buttonContinueTelaCadastrarInicial.setContentAreaFilled(false);
+        buttonContinueTelaCadastrarInicial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonContinueTelaCadastrarInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonContinueTelaCadastrarInicialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonContinueTelaCadastrarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 320, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/CADASTRO SIMPLES 2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 760));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonContinueTelaCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContinueTelaCadastrarActionPerformed
+    private void buttonContinueTelaCadastrarInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContinueTelaCadastrarInicialActionPerformed
        
-        if(txtTelaCadastroNome.getText().matches("") || txtTelaCadastroEmail.getText().matches("") || txtTelaCadastroSenha.getText().matches("") ){
+        if(txtTelaCadastroInicialNome.getText().matches("") || txtTelaCadastroInicialEmail.getText().matches("") || txtTelaCadastroSenhaInicial.getText().matches("") ){
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!");
         } else{
             try{
@@ -85,30 +90,34 @@ public class CadastroView extends javax.swing.JFrame {
     }    
                
         
-    }//GEN-LAST:event_buttonContinueTelaCadastrarActionPerformed
+    }//GEN-LAST:event_buttonContinueTelaCadastrarInicialActionPerformed
+
+    private void txtTelaCadastroInicialNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelaCadastroInicialNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelaCadastroInicialNomeActionPerformed
 
     public JPasswordField getjPasswordField1Senha() {
-        return txtTelaCadastroSenha;
+        return txtTelaCadastroSenhaInicial;
     }
 
     public void setjPasswordField1Senha(JPasswordField jPasswordField1Senha) {
-        this.txtTelaCadastroSenha = jPasswordField1Senha;
+        this.txtTelaCadastroSenhaInicial = jPasswordField1Senha;
     }
 
     public JTextField getjTextEmail() {
-        return txtTelaCadastroEmail;
+        return txtTelaCadastroInicialEmail;
     }
 
     public void setjTextEmail(JTextField jTextEmail) {
-        this.txtTelaCadastroEmail = jTextEmail;
+        this.txtTelaCadastroInicialEmail = jTextEmail;
     }
 
     public JTextField getjTextNome() {
-        return txtTelaCadastroNome;
+        return txtTelaCadastroInicialNome;
     }
 
     public void setjTextNome(JTextField jTextNome) {
-        this.txtTelaCadastroNome = jTextNome;
+        this.txtTelaCadastroInicialNome = jTextNome;
     }
 
     /**
@@ -145,10 +154,10 @@ public class CadastroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonContinueTelaCadastrar;
+    private javax.swing.JButton buttonContinueTelaCadastrarInicial;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtTelaCadastroEmail;
-    private javax.swing.JTextField txtTelaCadastroNome;
-    private javax.swing.JPasswordField txtTelaCadastroSenha;
+    private javax.swing.JTextField txtTelaCadastroInicialEmail;
+    private javax.swing.JTextField txtTelaCadastroInicialNome;
+    private javax.swing.JPasswordField txtTelaCadastroSenhaInicial;
     // End of variables declaration//GEN-END:variables
 }

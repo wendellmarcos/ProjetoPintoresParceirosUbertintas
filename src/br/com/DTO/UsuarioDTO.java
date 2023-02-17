@@ -16,6 +16,7 @@ public class UsuarioDTO {
     private String email;
     private String telefone;
     private String endereco;
+    private String cpf;
 
     public void UsuarioDTO(){
         
@@ -67,6 +68,20 @@ public class UsuarioDTO {
      */
     public void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
 }

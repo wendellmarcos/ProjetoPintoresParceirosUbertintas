@@ -4,10 +4,13 @@
  */
 package br.com.VIEW;
 
+import br.com.DAO.UsuarioDAO;
 import br.com.DTO.UsuarioDTO;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,6 +44,12 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtLoginUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtLoginUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtLoginUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtLoginUsuarioMouseEntered(evt);
+            }
+        });
         txtLoginUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginUsuarioActionPerformed(evt);
@@ -94,13 +103,9 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContinueActionPerformed
-        
-         String emailUsuario = txtLoginUsuario.getText();
-         String senhaUsuario = txtPasswordLogin.getText();
-         
-         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
-         objUsuarioDTO.setEmail(emailUsuario);
-         objUsuarioDTO.setSenhaUsuario(senhaUsuario);
+
+        Login();
+
     }//GEN-LAST:event_jButtonContinueActionPerformed
 
     private void txtPasswordLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordLoginActionPerformed
@@ -109,12 +114,16 @@ public class LoginView extends javax.swing.JFrame {
 
     private void txtLoginUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginUsuarioActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtLoginUsuarioActionPerformed
 
     private void txtPasswordLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordLoginKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordLoginKeyPressed
+
+    private void txtLoginUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLoginUsuarioMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginUsuarioMouseEntered
 
     public JPasswordField getjPasswordFieldSenha() {
         return txtPasswordLogin;
@@ -132,7 +141,6 @@ public class LoginView extends javax.swing.JFrame {
         this.txtLoginUsuario = jTextFieldLogin;
     }
 
-    
     /**
      * @param args the command line arguments
      */
@@ -175,4 +183,39 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField txtLoginUsuario;
     private javax.swing.JPasswordField txtPasswordLogin;
     // End of variables declaration//GEN-END:variables
+
+
+    private void Login (){
+        
+        try {
+            String emailUsuario = txtLoginUsuario.getText();
+            String senhaUsuario = txtPasswordLogin.getText();
+
+            UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+            objUsuarioDTO.setEmail(emailUsuario);
+            objUsuarioDTO.setSenhaUsuario(senhaUsuario);
+            
+            UsuarioDAO objUsuarioDAO = new UsuarioDAO();
+            ResultSet rsUsuarioDAO = objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO);
+            
+            if(rsUsuarioDAO.next()){
+              // CHAMAR A TELA QUE QUER ABRIR  
+              telaPrincipal objTelaPrincipal = new telaPrincipal();
+              objTelaPrincipal.setVisible(true);
+              
+              dispose();
+              
+            } else{
+                // ENVIAR MENSAGEM DE INCORRETO
+                JOptionPane.showMessageDialog(null, "Usuario ou Senhar inválida");
+                 
+            }
+            
+        } catch (SQLException erro) {
+            JOptionPane.showConfirmDialog(null, "LoginView" + erro);
+
+        }
+    
+    }
+    
 }
